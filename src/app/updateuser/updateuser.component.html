@@ -1,0 +1,17 @@
+<div *ngIf="user">
+    <div>
+        <div><span>id: </span>{{user.id}}</div>
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <div class="input-group">
+            <input [(ngModel)]="user.firstName">
+          </div>
+          <label for="lastName">Last Name:</label>
+          <div class="input-group">
+            <input [(ngModel)]="user.lastName">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>

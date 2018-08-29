@@ -1,0 +1,56 @@
+<html>
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div class="pull-right">
+  <button (click)="logout()" type="button" class="btn">LOGOUT</button>
+</div>
+
+<body>
+  <div class="container" style="padding-top: 60px;">
+    <div class="page-header">
+      <h1>User List</h1>
+      <form #userForm="ngForm" ng-submit="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+
+          <input type="text" name="firstName" [(ngModel)]="firstName">
+
+          <label for="lastName">Last Name</label>
+
+          <input type="text" name="lastName" [(ngModel)]="lastName">
+
+          <button type="submit" class="btn btn-primary" (click)="postData()">Add</button>
+        </div>
+
+        <table border="1" width="60%">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let user of _getData">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>
+              <a class="btn btn-warning" routerLink="/updateuser/{{user.id}}">Update</a>
+              <button type="button" class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+
+
+    </div>
+  </div>
+</body>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"></p>
+  </div>
+</footer>
+
+</html>
